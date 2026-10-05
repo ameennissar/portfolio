@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ameen K Nissar — Full Stack Developer</title>
+<meta name="description" content="Ameen K Nissar is a full stack developer building React, Node.js and MongoDB applications.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>A</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#ECEEF0;--ink:#0D0D0D;--mute:#6b6f76;--line:#c9ccd1;--accent:#2f4bff}
+:root[data-theme=dark]{--paper:#111112;--ink:#ECEEF0;--mute:#8d9198;--line:#2e3034;--accent:#7d90ff}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.0625rem;line-height:1.6;transition:background .4s,color .4s;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--accent);color:#fff}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.1rem clamp(1.25rem,5vw,3rem);mix-blend-mode:difference;color:#fff;font-size:.95rem}
+nav div{display:flex;gap:1.6rem;align-items:center}
+nav a,nav button{background:none;border:0;color:inherit;font:inherit;cursor:pointer;position:relative}
+nav a::after{content:"";position:absolute;left:0;bottom:-2px;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .35s}
+nav a:hover::after{transform:scaleX(1);transform-origin:left}
+
+/* hero */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:6rem}
+h1{font-size:clamp(4rem,17vw,14rem);line-height:.86;letter-spacing:-.04em;font-weight:300;user-select:none}
+h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+.ch{display:inline-block;font-variation-settings:'wght' 250,'wdth' 78;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*55ms + .15s);transition:font-variation-settings .18s ease-out}
+@keyframes rise{to{transform:none}}
+.sp{display:inline-block;width:.22em}
+.hero-meta{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;max-width:880px}
+.role{font-size:1.25rem;font-weight:500}
+.role span{display:block;color:var(--mute);font-weight:400;font-size:1rem}
+.hero p.sum{color:var(--mute);max-width:46ch}
+.hero-meta>*{opacity:0;animation:fade 1s 1.2s forwards}
+@keyframes fade{to{opacity:1}}
+
+/* marquee */
+.marq{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:1rem 0}
+.marq div{display:inline-flex;gap:3rem;animation:slide 32s linear infinite;font-size:1.6rem;font-weight:300;font-variation-settings:'wdth' 80}
+.marq:hover div{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:clamp(4.5rem,11vw,8rem) 0}
+.head{position:relative;padding-top:1.2rem;margin-bottom:3rem;font-size:1rem;color:var(--mute)}
+.head::before{content:"";position:absolute;top:0;left:0;height:1px;width:100%;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.in.head::before,.in .head::before{transform:scaleX(1)}
+.row{display:grid;grid-template-columns:1fr auto;gap:.5rem 2rem;align-items:baseline}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:500;letter-spacing:-.02em;line-height:1.1}
+.when{color:var(--mute);font-size:.95rem}
+.org{color:var(--mute);margin-top:.3rem}
+ul.pts{list-style:none;padding:0;margin-top:2rem;max-width:68ch}
+ul.pts li{padding:.7rem 0 .7rem 1.6rem;border-top:1px solid var(--line);position:relative;transition:padding .3s,color .3s}
+ul.pts li::before{content:"";position:absolute;left:0;top:1.35rem;width:.55rem;height:1px;background:var(--accent);transition:width .3s}
+ul.pts li:hover{padding-left:2.4rem}
+ul.pts li:hover::before{width:1.6rem}
+
+/* project */
+.proj{border-top:1px solid var(--ink);padding-top:1.5rem}
+.proj button.t{all:unset;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:1rem;width:100%;align-items:baseline}
+.proj h3{font-size:clamp(2.2rem,7vw,5.5rem);font-weight:300;letter-spacing:-.035em;line-height:1;transition:font-variation-settings .4s,color .4s;font-variation-settings:'wdth' 80}
+.proj button.t:hover h3,.proj.open h3{font-weight:700;color:var(--accent);font-variation-settings:'wdth' 100}
+.plus{font-size:2rem;font-weight:200;transition:transform .5s}
+.open .plus{transform:rotate(135deg)}
+.stack{color:var(--mute);margin-top:1rem}
+.body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s cubic-bezier(.2,.8,.2,1)}
+.open .body{grid-template-rows:1fr}
+.body>div{overflow:hidden}
+.pj{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;padding-top:2rem}
+.chart{border:1px solid var(--line);padding:1.5rem;display:flex;align-items:flex-end;gap:.7rem;height:260px;position:relative}
+.chart i{flex:1;background:var(--ink);height:0;transition:height 1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--n)*80ms + .2s)}
+.chart i:nth-child(3n){background:var(--accent)}
+.open .chart i{height:var(--h)}
+.chart:hover i{filter:saturate(0) opacity(.35)}.chart i:hover{filter:none!important}
+.chart small{position:absolute;top:.8rem;left:1.5rem;color:var(--mute);font-size:.85rem}
+
+/* skills */
+.skills div.s{display:grid;grid-template-columns:200px 1fr;gap:1rem;padding:1.1rem 0;border-top:1px solid var(--line);transition:background .3s,padding .3s}
+.skills div.s:hover{padding-left:1rem;background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.skills dt{color:var(--mute)}
+.skills dd{font-size:1.15rem}
+
+/* edu */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.two h2{font-size:1.5rem}
+.two .item+.item{margin-top:1.6rem}
+
+/* contact */
+.contact{padding-bottom:4rem}
+.big{display:inline-block;font-size:clamp(1.9rem,7.2vw,6rem);letter-spacing:-.035em;font-weight:300;line-height:1.05;word-break:break-all;transition:font-weight .4s,color .3s}
+.big:hover{font-weight:700;color:var(--accent)}
+.links{display:flex;flex-wrap:wrap;gap:2.5rem;margin-top:2.5rem}
+.links a{border-bottom:1px solid var(--ink);padding-bottom:2px;transition:color .3s,border-color .3s}
+.links a:hover{color:var(--accent);border-color:var(--accent)}
+footer{color:var(--mute);font-size:.9rem;padding:2rem 0 3rem;border-top:1px solid var(--line)}
+
+/* cursor */
+.dot{position:fixed;left:0;top:0;width:12px;height:12px;border-radius:50%;background:var(--accent);pointer-events:none;z-index:99;transform:translate(-50%,-50%);transition:width .3s,height .3s,opacity .3s;opacity:0}
+.dot.big-dot{width:56px;height:56px;opacity:.28!important}
+@media (pointer:coarse){.dot{display:none}}
+
+.rv{opacity:0;transform:translateY(14px);transition:opacity .9s,transform .9s}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:760px){
+ .hero-meta,.pj,.two{grid-template-columns:1fr}
+ .skills div.s{grid-template-columns:1fr;gap:.2rem}
+ nav div a.hide{display:none}
+ .row{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
+ .ch,.hero-meta>*,.rv{opacity:1;transform:none}
+ .marq div{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="dot" aria-hidden="true"></div>
+
+<nav>
+  <a href="#top" aria-label="Back to top">Ameen K Nissar</a>
+  <div>
+    <a class="hide" href="#experience">Experience</a>
+    <a class="hide" href="#work">Project</a>
+    <a class="hide" href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <button id="theme" type="button" aria-label="Switch colour theme">Dark</button>
+  </div>
+</nav>
+
+<main id="top">
+<header class="wrap hero">
+  <h1 aria-label="Ameen K Nissar" id="name">
+    <span class="line" aria-hidden="true" data-t="Ameen K"></span>
+    <span class="line" aria-hidden="true" data-t="Nissar"></span>
+  </h1>
+  <div class="hero-meta">
+    <div class="role">Full Stack Developer<span>Open to full-stack roles</span></div>
+    <p class="sum">Computer Science graduate who builds responsive React front ends and secure Node.js APIs. I write clean, maintainable code for production use.</p>
+  </div>
+</header>
+
+<div class="marq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="experience" class="wrap">
+  <div class="head rv">Experience</div>
+  <div class="row rv">
+    <h2>Full-Stack Development Intern</h2>
+    <span class="when">July 2026 – Present</span>
+  </div>
+  <p class="org rv">SMEC Technologies</p>
+  <ul class="pts rv">
+    <li>Built full-stack web applications with React.js, Node.js and Express.js, connected through RESTful APIs.</li>
+    <li>Added secure sign-in and role checks with JWT and middleware that protect private routes.</li>
+    <li>Managed application state with Redux Toolkit for consistent data handling across the interface.</li>
+    <li>Designed responsive interfaces with Tailwind CSS, HTML5 and CSS3.</li>
+    <li>Handled errors and tested APIs with Thunder Client to keep the backend reliable.</li>
+  </ul>
+</section>
+
+<section id="work" class="wrap">
+  <div class="head rv">Project</div>
+  <div class="proj rv" id="proj">
+    <button class="t" type="button" aria-expanded="false" aria-controls="pbody">
+      <h3>Level Up</h3><span class="plus" aria-hidden="true">+</span>
+    </button>
+    <p class="stack">Custom analytics dashboard · Python, React, Node.js, Express.js, MongoDB, Tailwind</p>
+    <div class="body" id="pbody"><div>
+      <div class="pj">
+        <div class="chart" aria-hidden="true"><small>Sample of charts built from uploaded data</small>
+          <i style="--h:42%;--n:0"></i><i style="--h:68%;--n:1"></i><i style="--h:55%;--n:2"></i><i style="--h:88%;--n:3"></i><i style="--h:36%;--n:4"></i><i style="--h:72%;--n:5"></i><i style="--h:60%;--n:6"></i><i style="--h:94%;--n:7"></i>
+        </div>
+        <ul class="pts" style="margin-top:0">
+          <li>Turns raw JSON data into clear visual insights with React, Node.js, MongoDB and Python.</li>
+          <li>Lets users upload JSON files, then process, filter and explore the data in interactive charts.</li>
+          <li>Exposes RESTful APIs in Express.js with routing, controllers, middleware and database integration.</li>
+          <li>Uses Python to transform and analyse datasets before they reach the dashboard.</li>
+          <li>Presents results in a responsive React and Tailwind interface.</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<section id="skills" class="wrap skills">
+  <div class="head rv">Skills</div>
+  <dl class="rv" style="margin:0">
+    <div class="s"><dt>Frontend</dt><dd>JavaScript (ES6+), React.js, React Router DOM, HTML5, CSS3, Tailwind CSS</dd></div>
+    <div class="s"><dt>Backend</dt><dd>Node.js, Express.js, RESTful API design, JWT authentication, middleware</dd></div>
+    <div class="s"><dt>Database</dt><dd>MongoDB</dd></div>
+    <div class="s"><dt>Tools and DevOps</dt><dd>Git, GitHub, Thunder Client, Postman, VS Code, Axios</dd></div>
+    <div class="s"><dt>Also</dt><dd>Redux Toolkit, deployment, TypeScript (basic)</dd></div>
+  </dl>
+</section>
+
+<section class="wrap">
+  <div class="head rv">Education and certifications</div>
+  <div class="two rv">
+    <div class="item"><h2>Bachelor of Science, Computer Science</h2><p class="org">Mahatma Gandhi University</p><p class="when">2023 – 2026</p></div>
+    <div>
+      <div class="item"><h2>React.js, Node.js, Express and MongoDB: The Complete Guide</h2><p class="org">Udemy · Maximilian Schwarzmüller</p></div>
+      <div class="item"><h2>The Complete JavaScript Course: From Zero to Expert</h2><p class="org">Udemy · Jonas Schmedtmann</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="wrap contact">
+  <div class="head rv">Contact</div>
+  <div class="rv">
+    <a class="big mag" href="mailto:ameennissar8@gmail.com">ameennissar8@gmail.com</a>
+    <div class="links">
+      <a href="tel:+919539291073">+91 95392 91073</a>
+      <!-- Replace # with your real profile URLs -->
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 Ameen K Nissar</div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  // theme
+  var btn=document.getElementById('theme'),saved=null;
+  try{saved=localStorage.getItem('theme')}catch(e){}
+  var dark=saved?saved==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+  function setTheme(){root.dataset.theme=dark?'dark':'light';btn.textContent=dark?'Light':'Dark';try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}}
+  btn.onclick=function(){dark=!dark;setTheme()};setTheme();
+
+  // hero letters: weight and width follow the pointer
+  var chars=[],i=0;
+  document.querySelectorAll('#name .line').forEach(function(l){
+    l.dataset.t.split('').forEach(function(c){
+      if(c===' '){var s=document.createElement('span');s.className='sp';l.appendChild(s);return}
+      var s=document.createElement('span');s.className='ch';s.textContent=c;s.style.setProperty('--i',i++);l.appendChild(s);chars.push(s);
+    });
+  });
+  var still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function proximity(x,y){
+    chars.forEach(function(c){
+      var r=c.getBoundingClientRect(),d=Math.hypot(x-(r.left+r.width/2),y-(r.top+r.height/2)),k=Math.max(0,1-d/260);
+      c.style.fontVariationSettings="'wght' "+Math.round(250+550*k)+",'wdth' "+Math.round(78+22*k);
+    });
+  }
+  if(!still){
+    addEventListener('pointermove',function(e){proximity(e.clientX,e.clientY)});
+    addEventListener('pointerleave',function(){proximity(-999,-999)});
+    // opening wave once the letters have risen
+    setTimeout(function(){chars.forEach(function(c,n){setTimeout(function(){c.style.fontVariationSettings="'wght' 760,'wdth' 100";setTimeout(function(){c.style.fontVariationSettings="'wght' 250,'wdth' 78"},320)},n*70)})},1500);
+  }
+
+  // marquee
+  var items=['React.js','Node.js','Express.js','MongoDB','Tailwind CSS','Redux Toolkit','JWT','REST APIs','Python','JavaScript'];
+  var html='';for(var r=0;r<2;r++)items.forEach(function(t){html+='<span>'+t+'</span>'});
+  document.getElementById('mq').innerHTML=html+html;
+
+  // reveal
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  document.querySelectorAll('.head.rv').forEach(function(h){h.classList.add('in')}); // line draws with its own timing below
+  var lio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');lio.unobserve(e.target)}})},{threshold:.5});
+  document.querySelectorAll('.head').forEach(function(h){h.classList.remove('in');lio.observe(h)});
+
+  // project toggle
+  var p=document.getElementById('proj'),t=p.querySelector('.t');
+  t.onclick=function(){var o=p.classList.toggle('open');t.setAttribute('aria-expanded',o)};
+
+  // cursor + magnetic
+  var dot=document.querySelector('.dot'),mx=0,my=0,dx=0,dy=0;
+  if(!matchMedia('(pointer:coarse)').matches){
+    addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY;dot.style.opacity=1});
+    (function loop(){dx+=(mx-dx)*.18;dy+=(my-dy)*.18;dot.style.transform='translate('+dx+'px,'+dy+'px) translate(-50%,-50%)';requestAnimationFrame(loop)})();
+    document.querySelectorAll('a,button,.chart,.s,.pts li').forEach(function(el){
+      el.addEventListener('pointerenter',function(){dot.classList.add('big-dot')});
+      el.addEventListener('pointerleave',function(){dot.classList.remove('big-dot')});
+    });
+    if(!still)document.querySelectorAll('.mag').forEach(function(m){
+      m.addEventListener('pointermove',function(e){var b=m.getBoundingClientRect();m.style.transform='translate('+(e.clientX-b.left-b.width/2)*.08+'px,'+(e.clientY-b.top-b.height/2)*.15+'px)'});
+      m.addEventListener('pointerleave',function(){m.style.transform=''});
+      m.style.transition='transform .3s,font-weight .4s,color .3s';
+    });
+  }
+})();
+</script>
+</body>
+</html>
